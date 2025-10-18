@@ -5,6 +5,7 @@ import lombok.*;
 
 @Setter
 @Getter
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -27,4 +28,10 @@ public class Profile {
 
     @Column(name = "loyalty_points")
     private String loyaltyPoints;
+
+    @OneToOne
+    @JoinColumn(name = "id")
+    @MapsId
+    @ToString.Exclude
+    private User user;
 }
